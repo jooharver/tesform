@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan Tes Wa</title>
+    <script>
+        function redirectToWhatsApp() {
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+            const orderType = document.getElementById('orderType').value;
+
+            const message = `Halo Saya ingin order dengan rincian : \nNama: ${name} \nTanggal: ${date} \nJenis Pesanan: ${orderType}`;
+            const encodedMessage = encodeURIComponent(message);
+
+            const whatsappURL = `https://wa.me/6287870463683?text=${encodedMessage}`;
+
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</head>
+<body>
+    <h1>Form Pemesanan</h1>
+    <form onsubmit="redirectToWhatsApp(); return false;">
+        <label for="name">Nama:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="date">Tanggal:</label><br>
+        <input type="date" id="date" name="date" required><br><br>
+        <label for="orderType">Jenis Pesanan:</label><br>
+        <input type="text" id="orderType" name="orderType" required><br><br>
+        <input type="submit" value="Kirim">
+    </form>
+</body>
+</html>
